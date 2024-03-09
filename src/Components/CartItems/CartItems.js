@@ -52,14 +52,6 @@ const CartItems = () => {
                     >
                       Remove
                     </button>
-                    {/* <img
-                      className="cartitems-remove-icon"
-                      src={remove_icon}
-                      onClick={() => {
-                        removeFromCart(e.id);
-                      }}
-                      alt=""
-                    /> */}
                   </div>
                   <hr />
                 </div>
