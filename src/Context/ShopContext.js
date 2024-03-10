@@ -27,7 +27,7 @@ const ShopContextProvider = (props) => {
   const clearCart = () => {
     setCartItems((prev) => {
       for (let i in cartItems) {
-        prev[i] = 0;
+        i = 0;
       }
     });
   };
