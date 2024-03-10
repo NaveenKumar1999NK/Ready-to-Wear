@@ -4,8 +4,15 @@ import { ShopContext } from "../../Context/ShopContext";
 import emptycart from "../Assets/emptycart.png";
 
 const CartItems = () => {
-  const { all_product, cartItems, removeFromCart, getTotalCartAmount } =
-    useContext(ShopContext);
+  const {
+    all_product,
+    cartItems,
+    removeFromCart,
+    reduceCart,
+    addToCart,
+    clearCart,
+    getTotalCartAmount,
+  } = useContext(ShopContext);
   let length = false;
   for (let key in cartItems) {
     if (cartItems[key] > 0) {
@@ -19,6 +26,9 @@ const CartItems = () => {
     <div>
       {length === true ? (
         <div className="cartitems">
+          <div className="clearall">
+            <button onClick={clearCart}>clear all</button>
+          </div>
           <div className="cartitems-format-main">
             <p>Products</p>
             <p>Title</p>
@@ -40,9 +50,23 @@ const CartItems = () => {
                     />
                     <p>{e.name}</p>
                     <p>${e.new_price} </p>
-                    <button className="caritems-quantity">
-                      {cartItems[e.id]}
-                    </button>
+                    <div className="caritems-quantity">
+                      <button
+                        onClick={() => {
+                          reduceCart(e.id);
+                        }}
+                      >
+                        -
+                      </button>
+                      <h4>{cartItems[e.id]}</h4>
+                      <button
+                        onClick={() => {
+                          addToCart(e.id);
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
                     <p>${e.new_price * cartItems[e.id]} </p>
                     <button
                       className="cartitems-remove-icon"
@@ -94,7 +118,7 @@ const CartItems = () => {
         </div>
       ) : (
         <div className="emptycart-img">
-          <img src={emptycart}></img>
+          <img src={emptycart} alt=""></img>
         </div>
       )}
     </div>

@@ -6,6 +6,20 @@
     background: #e2e2e2;
     border: 0;
 }
+.clearall {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 50px;
+    margin-bottom: 80px;
+}
+.clearall button {
+    border-radius: 30px;
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid rgb(151, 146, 146);
+    font-weight: 540;
+}
 .cartitems-format-main {
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.7fr 0.75fr 0.7fr 0.8fr;
