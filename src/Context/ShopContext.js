@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import all_product from "../Components/Assets/all_product";
+import App from "../App";
 
 export const ShopContext = createContext(null);
 const getDefaultCart = () => {
@@ -66,7 +67,7 @@ const ShopContextProvider = (props) => {
 
   return (
     <ShopContext.Provider value={contextValue}>
-      {props.children}
+      <App />
     </ShopContext.Provider>
   );
 };
